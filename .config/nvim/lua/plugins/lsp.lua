@@ -16,16 +16,14 @@ return { -- LSP Configuration & Plugins
           vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-        map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-        map('K', vim.lsp.buf.hover, 'Hover Documentation')
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        map('gd', require('telescope.builtin').lsp_definitions, 'go to definition')
+        map('gr', require('telescope.builtin').lsp_references, 'go to references')
+        map('gI', require('telescope.builtin').lsp_implementations, 'go to implementations')
+        map('<leader>ld', require('telescope.builtin').lsp_type_definitions, 'type definition')
+        map('<leader>lr', vim.lsp.buf.rename, 'rename')
+        map('<leader>la', vim.lsp.buf.code_action, 'action')
+        map('K', vim.lsp.buf.hover, 'Hover documentation')
+        map('gD', vim.lsp.buf.declaration, 'go to declaration')
 
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.

@@ -6,12 +6,13 @@ return { -- Useful plugin to show you pending keybinds.
 
     -- Document existing key chains
     require('which-key').register {
-      ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-      ['<leader>l'] = { name = '[L]SP', _ = 'which_key_ignore' },
+      ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
+      ['<leader>l'] = { name = 'LSP', _ = 'which_key_ignore' },
+      ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
     }
     -- visual mode
     require('which-key').register({
-      ['<leader>h'] = { 'Git [H]unk' },
+      ['<leader>h'] = { 'Git hunk' },
     }, { mode = 'v' })
   end,
 }
