@@ -19,6 +19,7 @@ local default_header = {
     '      ██▒▒░░▒▒▒▒░░▒▒░░░░░░▒▒░░▒▒▒▒░░▒▒██        ',
     '        ██░░████░░██████████░░████░░██          ',
     '        ██▓▓░░  ▓▓██░░  ░░██▓▓  ░░▓▓██          ',
+    '',
     '███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
     '████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
     '██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
@@ -34,22 +35,14 @@ local default_header = {
 
 local footer = {
   type = 'text',
-  val = '',
+  val = 'Meow meow meow meow.',
   opts = {
     position = 'center',
     hl = 'Number',
   },
 }
 
-local leader = 'SPC'
-
---- @param sc string
---- @param txt string
---- @param keybind string? optional
---- @param keybind_opts table? optional
 local function button(sc, txt, keybind, keybind_opts)
-  local sc_ = sc:gsub('%s', ''):gsub(leader, '<leader>')
-
   local opts = {
     position = 'center',
     shortcut = sc,
@@ -59,11 +52,11 @@ local function button(sc, txt, keybind, keybind_opts)
     hl_shortcut = 'string',
   }
   if keybind then
-    opts.keymap = { 'n', sc_, keybind, keybind_opts }
+    opts.keymap = { 'n', sc, keybind, keybind_opts }
   end
 
   local function on_press()
-    local key = vim.api.nvim_replace_termcodes(keybind or sc_ .. '<Ignore>', true, false, true)
+    local key = vim.api.nvim_replace_termcodes(keybind or sc .. '<Ignore>', true, false, true)
     vim.api.nvim_feedkeys(key, 't', false)
   end
 
@@ -78,13 +71,11 @@ end
 local buttons = {
   type = 'group',
   val = {
+    button('p', '  Projects', '<cmd>Telescope workspaces <CR>'),
     button('e', '  New file', '<cmd>ene <CR>'),
-    button('SPC f f', '󰈞  Find file'),
-    button('SPC f h', '󰊄  Recently opened files'),
-    button('SPC f r', '  Frecency/MRU'),
-    button('SPC f g', '󰈬  Find word'),
-    button('SPC f m', '  Jump to bookmarks'),
-    button('SPC s l', '  Open last session'),
+    button('f', '󰈞  Find file', '<cmd>Telescope find_files <CR>'),
+    button('t', '󰊄  Find text', '<cmd>Telescope live_grep <CR>'),
+    button('r', '  Find recent', '<cmd>Telescope oldfiles <CR>'),
   },
   opts = {
     spacing = 1,
