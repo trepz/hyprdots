@@ -13,6 +13,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    'ahmedkhalf/project.nvim',
   },
   config = function()
     require('telescope').setup {
@@ -26,6 +27,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'projects')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -40,6 +42,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>ss', builtin.resume, { desc = 'Search last search' })
     vim.keymap.set('n', '<leader>sr', builtin.oldfiles, { desc = 'Search recent' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
+
+    -- Extension maps
+    vim.keymap.set('n', '<leader>sp', require('telescope').extensions.projects.projects, { desc = 'Search projects' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
