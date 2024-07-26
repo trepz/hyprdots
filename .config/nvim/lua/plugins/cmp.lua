@@ -48,11 +48,8 @@ return { -- Autocompletion
         end,
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
-
       mapping = cmp.mapping.preset.insert {
-        ['<C-Space>'] = cmp.mapping.confirm { select = true },
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        ['<Tab>'] = cmp.mapping.confirm { select = true },
       },
       sources = {
         { name = 'nvim_lsp' },
