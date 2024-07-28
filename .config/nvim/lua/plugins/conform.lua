@@ -27,6 +27,7 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       html = { 'prettierd' },
+      gdscript = { 'gdformat' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
