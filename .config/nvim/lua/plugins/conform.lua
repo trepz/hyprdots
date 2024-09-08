@@ -28,6 +28,7 @@ return {
       lua = { 'stylua' },
       html = { 'prettierd' },
       gdscript = { 'gdformat' },
+      javascript = { 'prettierd' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
