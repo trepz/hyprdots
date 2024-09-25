@@ -24,4 +24,5 @@ return {
     end,
   },
   { 'Olical/nfnl', ft = 'fennel' },
+  { 'gpanders/nvim-parinfer', ft = 'fennel' },
 }
