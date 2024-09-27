@@ -150,5 +150,11 @@ return { -- LSP Configuration & Plugins
         end,
       },
     }
+
+    -- Fennel language server managed locally because mason one is out of date
+    -- Make sure the latest binary is installed and on path from:
+    -- https://git.sr.ht/~xerool/fennel-ls/tree/main/docs/manual.md#installation
+    -- Otherwise comment this out if you get an error on a different environment
+    require('lspconfig').fennel_ls.setup { capabilities = capabilities }
   end,
 }
