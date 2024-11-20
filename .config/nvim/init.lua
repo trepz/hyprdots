@@ -21,6 +21,9 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save' })
 vim.keymap.set('n', '<leader>c', '<cmd>bd<CR>', { desc = 'Close buffer' })
