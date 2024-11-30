@@ -29,6 +29,8 @@ return {
       html = { 'prettierd' },
       gdscript = { 'gdformat' },
       javascript = { 'prettierd' },
+      typescript = { 'prettierd' },
+      vue = { 'prettierd' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
