@@ -26,5 +26,23 @@ return { -- Highlight, edit, and navigate code
     require('nvim-treesitter.install').prefer_git = true
     ---@diagnostic disable-next-line: missing-fields
     require('nvim-treesitter.configs').setup(opts)
+    -- Add custom parsers
+    local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+    ---@diagnostic disable-next-line: inject-field
+    parser_config.swarm_object = {
+      install_info = {
+        url = 'https://github.com/trepz/tree-sitter-swarm_object',
+        files = { 'src/parser.c' },
+        highlight = {
+          enable = true,
+        },
+        branch = 'main',
+        generate_requires_npm = false,
+        requires_generate_from_grammar = false,
+      },
+    }
+    vim.filetype.add {
+      extension = { sso = 'swarm_object', cls = 'swarm_object', prop = 'swarm_object' },
+    }
   end,
 }
