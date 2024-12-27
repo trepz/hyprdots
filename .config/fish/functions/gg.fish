@@ -1,4 +1,4 @@
-function gg --wraps=lazygit --description 'alias gg lazygit'
+function gg --wraps=lazygit --description 'alias gg=lazygit'
   lazygit $argv
         
 end
