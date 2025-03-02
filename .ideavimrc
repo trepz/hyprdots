@@ -1,0 +1,21 @@
+" Set leader keys
+let mapleader = ' '
+
+" Set options
+set number
+set relativenumber
+set clipboard+=unnamedplus
+set breakindent
+set ignorecase
+set smartcase
+set scrolloff=10
+set hlsearch
+set incsearch
+set mini-ai
+
+" Key mappings
+nnoremap <leader>w :w<CR>
+nnoremap <leader>c :bd<CR>
+nnoremap <Esc> :nohlsearch<CR>
+tnoremap <Esc><Esc> <C-\><C-n>
+nnoremap s :action KJumpAction.Char2<cr>
