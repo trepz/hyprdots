@@ -11,7 +11,8 @@ set smartcase
 set scrolloff=10
 set hlsearch
 set incsearch
-set mini-ai
+
+nmap <leader>e <Action>(ShowErrorDescription)
 
 " Key mappings
 nnoremap <leader>w :w<CR>
