@@ -15,8 +15,26 @@ set incsearch
 nmap <leader>e <Action>(ShowErrorDescription)
 
 " Key mappings
+nnoremap <leader><leader> :action RecentFiles<CR>
+
 nnoremap <leader>w :w<CR>
 nnoremap <leader>c :bd<CR>
+nnoremap <leader>lR :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>lr :action RenameElement<CR>
+nnoremap <leader>la :action ShowIntentionActions<CR>
+
+nnoremap <leader>tn :action GoToTab1<CR>
+nnoremap <leader>te :action GoToTab2<CR>
+nnoremap <leader>ti :action GoToTab3<CR>
+nnoremap <leader>to :action GoToTab4<CR>
+nnoremap <leader>tt :action GoToTab5<CR>
+nnoremap <leader>ts :action GoToTab6<CR>
+nnoremap <leader>tr :action GoToTab7<CR>
+nnoremap <leader>ta :action GoToTab8<CR>
+
+nnoremap <leader>f :action GotoFile<CR>
+nnoremap <leader>st :action TextSearchAction<CR>
+
 nnoremap <Esc> :nohlsearch<CR>
 tnoremap <Esc><Esc> <C-\><C-n>
 nnoremap s :action KJumpAction.Char2<cr>
