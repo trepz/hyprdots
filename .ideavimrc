@@ -1,5 +1,6 @@
 " Set leader keys
 let mapleader = ' '
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " Set options
 set number
@@ -11,10 +12,20 @@ set smartcase
 set scrolloff=10
 set hlsearch
 set incsearch
+set functiontextobj
+set miniai
+set quickscope
 
-nmap <leader>e <Action>(ShowErrorDescription)
+Plug 'tpope/vim-commentary'
+Plug 'tommcdo/vim-exchange'
+Plug 'machakann/vim-highlightedyank'
+Plug 'preservim/nerdtree'
+Plug 'dbakker/vim-paragraph-motion'
+Plug 'tpope/vim-surround'
+
 
 " Key mappings
+nmap <leader>e <Action>(ShowErrorDescription)
 nnoremap <leader><leader> :action RecentFiles<CR>
 
 nnoremap <leader>w :w<CR>
@@ -23,17 +34,16 @@ nnoremap <leader>lR :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>lr :action RenameElement<CR>
 nnoremap <leader>la :action ShowIntentionActions<CR>
 
-nnoremap <leader>tn :action GoToTab1<CR>
-nnoremap <leader>te :action GoToTab2<CR>
-nnoremap <leader>ti :action GoToTab3<CR>
-nnoremap <leader>to :action GoToTab4<CR>
-nnoremap <leader>tt :action GoToTab5<CR>
-nnoremap <leader>ts :action GoToTab6<CR>
-nnoremap <leader>tr :action GoToTab7<CR>
-nnoremap <leader>ta :action GoToTab8<CR>
-
 nnoremap <leader>f :action GotoFile<CR>
 nnoremap <leader>st :action TextSearchAction<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>T :NERDTreeFocus<CR>
+nnoremap <leader>u :action TriggerRefreshInUnity<CR>
+
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
 
 nnoremap <Esc> :nohlsearch<CR>
 tnoremap <Esc><Esc> <C-\><C-n>
