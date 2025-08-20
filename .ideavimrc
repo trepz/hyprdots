@@ -19,7 +19,7 @@ set quickscope
 Plug 'tpope/vim-commentary'
 Plug 'tommcdo/vim-exchange'
 Plug 'machakann/vim-highlightedyank'
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 Plug 'dbakker/vim-paragraph-motion'
 Plug 'tpope/vim-surround'
 
