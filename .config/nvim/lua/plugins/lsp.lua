@@ -74,8 +74,7 @@ return { -- LSP Configuration & Plugins
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     -- Specify path to vue language server since it needs to work with ts_ls for hybrid mode integration
-    local mason_registry = require 'mason-registry'
-    local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+    local vue_language_server_path = vim.fn.expand '$MASON/packages/vue-language-server/node_modules/@vue/language-server'
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -136,7 +135,6 @@ return { -- LSP Configuration & Plugins
         },
         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
       },
-      volar = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -165,15 +163,9 @@ return { -- LSP Configuration & Plugins
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
+          vim.lsp.config[server_name].setup(server)
         end,
       },
     }
-
-    -- Fennel language server managed locally because mason one is out of date
-    -- Make sure the latest binary is installed and on path from:
-    -- https://git.sr.ht/~xerool/fennel-ls/tree/main/docs/manual.md#installation
-    -- Otherwise comment this out if you get an error on a different environment
-    require('lspconfig').fennel_ls.setup { capabilities = capabilities }
   end,
 }
